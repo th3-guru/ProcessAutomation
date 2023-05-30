@@ -17,7 +17,7 @@ To set up a CRON job:
 	replace "0 0 * * *" with required timing to run the script.
 	0 indicates the minute when the cron job will run. In this case, it is set to run at minute 0(the start of the hour).
 	15 indicates the hour when the cron job will run. It is set to run at hour 15 (3 PM in 24-hour format).
-	* * * indicates the day of the month, month, and day of the week, respectively. In this case, all asterisks (*) are used, which means the cron job will run every day, every month, and every day of the week.
+	"* * *" indicates the day of the month, month, and day of the week, respectively. In this case, all asterisks (*) are used, which means the cron job will run every day, every month, and every day of the week.
 
 To set up an airflow job:
 1. Install and set up airflow in your unix based environment.
