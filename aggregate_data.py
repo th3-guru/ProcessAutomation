@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
 import os
 import pandas as pd
 from collections import defaultdict
