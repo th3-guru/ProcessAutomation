@@ -9,7 +9,7 @@ import pycountry
 from datetime import datetime, timedelta
 
 
-# Step 1: Read and Parse Log Files
+# Read and Parse Log Files
 def parse_log_files(log_folder, start_date, end_date):
     aggregated_streams = defaultdict(lambda: defaultdict(int))
     for file_name in os.listdir(log_folder):
@@ -32,7 +32,7 @@ def parse_log_files(log_folder, start_date, end_date):
     return aggregated_streams
 
 
-# Step 3: Calculate Top 50 Songs per Country
+# Calculate Top 50 Songs per Country
 def calculate_top_songs_per_country(aggregated_streams):
     top_songs_per_country = {}
     for country, streams in aggregated_streams.items():
@@ -43,7 +43,7 @@ def calculate_top_songs_per_country(aggregated_streams):
     return top_songs_per_country
 
 
-# Step 6: Calculate Top 50 Songs per User
+# Calculate Top 50 Songs per User
 def calculate_top_songs_per_user(aggregated_streams):
     top_songs_per_user = {}
     for user_id, streams in aggregated_streams.items():
@@ -74,26 +74,26 @@ def main():
     end_date = datetime.now()
     start_date = end_date - timedelta(days=6)
 
-    # Step 1: Read and Parse Log Files
+    # Read and Parse Log Files
     aggregated_streams = parse_log_files(log_folder, start_date, end_date)
 
-    # Step 3: Calculate Top 50 Songs per Country
+    # Calculate Top 50 Songs per Country
     top_songs_per_country = calculate_top_songs_per_country(aggregated_streams)
 
-    # Step 6: Calculate Top 50 Songs per User
+    # Calculate Top 50 Songs per User
     top_songs_per_user = calculate_top_songs_per_user(aggregated_streams)
 
-    # Step 4: Create DataFrame from top songs per country
+    # Create DataFrame from top songs per country
     df_country = pd.DataFrame.from_dict(top_songs_per_country, orient='index')
     df_country.reset_index(inplace=True)
     df_country.columns = ['Country', 'Top Songs']
 
-    # Step 4: Create DataFrame from top songs per user
+    # Create DataFrame from top songs per user
     df_user = pd.DataFrame.from_dict(top_songs_per_user, orient='index')
     df_user.reset_index(inplace=True)
     df_user.columns = ['User', 'Top Songs']
 
-    # Step 5: Check the validity of country codes
+    # Check the validity of country codes
     valid_country_codes = []
     for code in df_country['Country']:
         if len(code) == 2 and is_valid_country(code):
@@ -107,7 +107,7 @@ def main():
     # Remove the 'Top Songs' column
     df_country.drop('Top Songs', axis=1, inplace=True)
 
-    # Step 5: Save the resulting DataFrames to output files
+    # Save the resulting DataFrames to output files
     output_file_country = os.path.join(output_folder, f"country_top50_{end_date.strftime('%Y%m%d')}.txt")
     output_file_user = os.path.join(output_folder, f"user_top50_{end_date.strftime('%Y%m%d')}.txt")
 
