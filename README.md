@@ -30,8 +30,8 @@ To set up an airflow job:
 5. Find the daily_processing DAG in the airflow UI. Turn on the DAG by toggling the switch icon.
 
 Description of the process:
-1. (Optional - personal testing purpose)The generate_data.py script generates a random dataset everyday, into the ./in folder
+1. (Optional - personal testing purpose)The generate_data.py script is automated to generate a logfile everyday into the ./in folder. It checks if log files exist for the last 7 days and creates log files only for the missing days. Additionally, it generates a log file for the current date if it doesn't already exist.
 2. The aggregate_data.py script does all the required processes as mentioned in the case study, and aggregates the data based on top 50 songs per country and users into two separate files of the formats country_top50_YYYYMMDD.txt and user_top50_YYYYMMDD.txt respectively. These files are saved into the ./out folder.
 3. Following the execution of the aggregate_data.py script, the clean_up.py script will be executed which will delete files that are older than 7 days, based on the date extracted from the name of the log files.
 
-The in and out folders already contain test results. 
+The in and out folders already contain test results.
