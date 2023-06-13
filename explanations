@@ -1,0 +1,48 @@
+aggregated_streams = {
+    # nested defaultdict for country-level aggregation
+    "Country1": {
+        song_id_1: 0,
+        song_id_2: 0,
+        ...
+    },
+    "Country2": {
+        song_id_1: 0,
+        song_id_3: 0,
+        ...
+    },
+    "User1": {
+        song_id_1: 0,
+        song_id_3: 0,
+        ...
+    },
+    ...
+}
+
+{
+    "Country1": {
+        "song_id_1": 10,
+        "song_id_2": 5,
+        "song_id_3": 3,
+        ...
+    },
+    "Country2": {
+        "song_id_1": 8,
+        "song_id_4": 6,
+        "song_id_5": 2,
+        ...
+    },
+    ...
+    "User1": {
+        "song_id_1": 12,
+        "song_id_3": 5,
+        "song_id_6": 8,
+        ...
+    },
+    "User2": {
+        "song_id_2": 7,
+        "song_id_4": 3,
+        "song_id_7": 6,
+        ...
+    },
+    ...
+}
