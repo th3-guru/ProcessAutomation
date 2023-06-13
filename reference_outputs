@@ -1,5 +1,5 @@
 aggregated_streams = {
-    # nested defaultdict for country-level aggregation
+    # nested defaultdict for country/user-level aggregation
     "Country1": {
         song_id_1: 0,
         song_id_2: 0,
