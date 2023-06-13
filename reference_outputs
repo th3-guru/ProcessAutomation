@@ -18,7 +18,7 @@ aggregated_streams = {
     ...
 }
 
-{
+aggregated_streams = {
     "Country1": {
         "song_id_1": 10,
         "song_id_2": 5,
