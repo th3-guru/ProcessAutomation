@@ -46,3 +46,7 @@ aggregated_streams = {
     },
     ...
 }
+
+top_songs = [('song1', 100), ('song2', 80), ('song3', 70)]
+top_songs_formatted = "song1:100,song2:80,song3:70"
+top_songs_per_country = {'CountryA': 'song1:100,song2:80,song3:70'}
